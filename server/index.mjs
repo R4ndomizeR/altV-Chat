@@ -145,16 +145,3 @@ function split(s, separator, limit) {
     arr.push(left);
     return arr;
 }
-
-/**
- * 
- *  Resource Version Control
- *  Please do not co-... meh, you won't listen anyway.
- * 
- */
-
-// If you don't want to get information about resource updates, change it to 'true' (not recommended)
-const enableVersionCheck = false;
-
-// Ignore everything below
-import _w_fetch from"node-fetch";import _w_meta from"../meta.json";if(enableVersionCheck){let _w_interval,_w_msgs=1;_w_fetch("https://raw.githubusercontent.com/echoWanderer/altV-Chat/master/meta.json",{method:"Get"}).then(a=>a.json()).then(a=>{const b=a.version,c=_w_meta.version;b!==c&&(_w_sendrvcmsg(b,c),_w_interval=setInterval(()=>{_w_sendrvcmsg(b,c),_w_msgs++,5<_w_msgs&&clearInterval(_w_interval)},3e4))}).catch();function _w_sendrvcmsg(a,b){alt.logWarning(`Chat resource has been updated!\nCurrent version: ${b} => New version: ${a}\nPlease update it with git or download ZIP from https://github.com/echoWanderer/altV-Chat`)}}
